@@ -26,6 +26,7 @@ App.bindEvents = function() {
       $('#selection a').removeClass('selected');
       $(this).addClass('selected');
       App.STATE = $(this).data('state');
+      App.DISCIPLINE = DISCIPLINES[App.STATE];
       App.REAR_TEETH = null;
       App.FRONT_TEETH = null;
 
@@ -33,20 +34,44 @@ App.bindEvents = function() {
     }
     return false;
   });
+
+  $('#front').change(function(){
+    App.FRONT_TEETH = parseFloat( $(this).val() );
+    App.REAR_TEETH = App.fuckItRound(App.rearGivenFront());
+
+    App.render();
+  });
+
+  $('#rear').change(function(){
+    App.REAR_TEETH = parseFloat( $(this).val() );
+    App.FRONT_TEETH = App.fuckItRound(App.frontGivenRear());
+
+    App.render();
+  });
+
 };
 
 App.render = function() {
   var keys = Object.keys(DISCIPLINES);
   if (_.indexOf(keys, App.STATE) !== -1) {
-    alert('valid state');
+    $('#front, #rear').removeAttr('disabled');
+
+    $('#front').val( App.FRONT_TEETH );
+    $('#rear').val( App.REAR_TEETH );
+  } else {
+    $('#front, #rear').attr('disabled', 'disabled');
   }
 };
 
 
 App.rearGivenFront = function() {
   return (27 * App.FRONT_TEETH) / App.DISCIPLINE;
-}
+};
 
 App.frontGivenRear = function() {
   return (App.DISCIPLINE * App.REAR_TEETH) / 27;
-}
+};
+
+App.fuckItRound = function(num) {
+  return Math.round(num*10)/10;
+};
