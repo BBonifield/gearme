@@ -41,3 +41,12 @@ App.render = function() {
     alert('valid state');
   }
 };
+
+
+App.rearGivenFront = function() {
+  return (27 * App.FRONT_TEETH) / App.DISCIPLINE;
+}
+
+App.frontGivenRear = function() {
+  return (App.DISCIPLINE * App.REAR_TEETH) / 27;
+}
