@@ -62,8 +62,13 @@ App.render = function() {
     $('#front, #rear').attr('disabled', 'disabled');
   }
   // draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth_width_at_top, color, translate_x, translate_y, inner_circle_radius)
+  if ( App.RENDERED === true ) {
+    erase_gear(1);
+    erase_gear(2);
+  }
   draw_gear(Math.round(App.FRONT_TEETH), App.FRONT_TEETH, 3, 2, 1, "#333", 200, 200, 3, 's1', 1);
   draw_gear(Math.round(App.REAR_TEETH), App.REAR_TEETH, 3, 2, 1, "#333", 300, 200, 3, 's2', 2);
+  App.RENDERED = true;
 };
 
 
