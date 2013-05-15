@@ -1,8 +1,18 @@
-$(document).ready(function(){
+$(document).ready(function() {
   App.init();
 })
 
-App = {};
+var DISCIPLINES = {
+  SPRINT: 96,
+  TT: 100,
+  ENDURANCE: 91
+}
+
+App = {
+  DISCIPLINE: 'SPRINT',
+  FRONT_TEETH: 50,
+  REAR_TEETH: 14
+};
 
 App.init = function() {
   App.bindEvents();
