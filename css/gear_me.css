@@ -3,6 +3,10 @@ body {
   color: #000;
 }
 
+svg {
+  height: 400px;
+}
+
 #selection {
   position: relative;
   top: 0px;

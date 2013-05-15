@@ -61,6 +61,8 @@ App.render = function() {
   } else {
     $('#front, #rear').attr('disabled', 'disabled');
   }
+  // draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth_width_at_top, color, translate_x, translate_y, inner_circle_radius)
+  draw_gear(42, 100, 3, 2, 1, "#333", 200, 200, 3);
 };
 
 
