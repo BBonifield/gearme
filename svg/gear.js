@@ -6,14 +6,14 @@ function makeSVG(tag, attrs) {
   return el;
 }
 
-function draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth_width_at_top, color, translate_x, translate_y, inner_circle_radius) {
+function draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth_width_at_top, color, translate_x, translate_y, inner_circle_radius, id_of_svg_element, gear_num) {
   var translate = makeSVG('g', {
-    id: "g",
+    id: "g1" + gear_num,
     transform: "translate(" + translate_x + ", " + translate_y + ")"
   });
   
   var translate2 = makeSVG('g', {
-    id: "g2",
+    id: "g2" + gear_num,
     transform: "translate(0, 0)"
   });
   
@@ -31,8 +31,8 @@ function draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth
     fill: 'white'
   });
   
-  document.getElementById('s').appendChild(translate);
-  document.getElementById('g').appendChild(translate2);
+  document.getElementById(id_of_svg_element).appendChild(translate);
+  document.getElementById('g1' + gear_num).appendChild(translate2);
   
   var i;
   for (i = 0; i < num_teeth; i++) {
@@ -44,7 +44,7 @@ function draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth
       fill: color,
       transform: "rotate(-" + angle + ")"
     });
-    document.getElementById('g2').appendChild(tooth);
+    document.getElementById('g2' + gear_num).appendChild(tooth);
   }
   
   var spinning = makeSVG('animateTransform', {
@@ -57,8 +57,8 @@ function draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth
     repeatCount: "indefinite"
   });
   
-  document.getElementById('g2').appendChild(spinning);
-  document.getElementById('g').appendChild(translate2);
-  document.getElementById('g').appendChild(outer_circle);
-  document.getElementById('g').appendChild(inner_circle);
+  document.getElementById('g2' + gear_num).appendChild(spinning);
+  document.getElementById('g1' + gear_num).appendChild(translate2);
+  document.getElementById('g1' + gear_num).appendChild(outer_circle);
+  document.getElementById('g1' + gear_num).appendChild(inner_circle);
 }

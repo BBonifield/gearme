@@ -5,12 +5,14 @@
     <!--<script src="http://cdnjs.cloudflare.com/ajax/libs/d3/2.10.0/d3.v2.min.js"></script>-->
   </head>
   <body>
-    <svg id="s" xmlns="http://www.w3.org/2000/svg"/>
+    <svg width="100" height="100" id="s1" xmlns="http://www.w3.org/2000/svg" style="border:1px black solid"/>
+    <svg width="100" height="100" id="s2" xmlns="http://www.w3.org/2000/svg" style="border:1px black solid"/>
   </body>
   <script>
     $(function() {
-      // draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth_width_at_top, color, translate_x, translate_y, inner_circle_radius)
-      draw_gear(42, 40, 3, 2, 1, "#333", 50, 50, 3);
+      // draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth_width_at_top, color, translate_x, translate_y, inner_circle_radius, id_of_svg_element, gear_num)
+      draw_gear(42, 40, 3, 2, 1, "#333", 50, 50, 3, "s1", 1);
+      draw_gear(21, 20, 3, 2, 1, "#333", 50, 50, 3, "s2", 2);
     });
   </script>
 </html>
