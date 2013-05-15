@@ -6,6 +6,11 @@ function makeSVG(tag, attrs) {
   return el;
 }
 
+function erase_gear(gear_num) {
+  element = document.getElementById("g1" + gear_num);
+  element.parentNode.removeChild(element);
+}
+
 function draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth_width_at_top, color, translate_x, translate_y, inner_circle_radius, id_of_svg_element, gear_num) {
   var translate = makeSVG('g', {
     id: "g1" + gear_num,

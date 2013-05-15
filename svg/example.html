@@ -8,11 +8,16 @@
     <svg width="100" height="100" id="s1" xmlns="http://www.w3.org/2000/svg" style="border:1px black solid"/>
     <svg width="100" height="100" id="s2" xmlns="http://www.w3.org/2000/svg" style="border:1px black solid"/>
   </body>
+  <button id='erase-gear'>Erase gear</button>
   <script>
     $(function() {
       // draw_gear(num_teeth, radius, tooth_height, tooth_width_at_bottom, tooth_width_at_top, color, translate_x, translate_y, inner_circle_radius, id_of_svg_element, gear_num)
       draw_gear(42, 40, 3, 2, 1, "#333", 50, 50, 3, "s1", 1);
       draw_gear(21, 20, 3, 2, 1, "#333", 50, 50, 3, "s2", 2);
+      $('#erase-gear').click(function() {
+        erase_gear(1);
+        erase_gear(2);
+      });
     });
   </script>
 </html>
